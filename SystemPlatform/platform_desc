@@ -1,0 +1,30 @@
+
+# -*- python -*-
+
+
+todo = Platform('caba', 'top.cpp',
+				uses = [
+	Uses('caba:vci_cc_cache_sls', iss_t = 'common:mips32el'),
+	Uses('caba:vci_cc_cache_sls', iss_t = 'common:gdb_iss', gdb_iss_t = 'common:mips32el'),
+	Uses('caba:vci_cc_ram_sls', data_byte_width = '4', addr_bit_width = '32'),
+	Uses('caba:vci_vgmn'),
+	Uses('caba:vci_log_console'),
+	Uses('caba:vci_multi_tty'),
+	Uses('caba:vci_timer'),
+	Uses('caba:vci_aicu'),
+	Uses('common:elf_file_loader'),
+	Uses('common:cc_id_table_sls'),
+  Uses('caba:vci_mailbox'),
+	Uses('common:cc_id_table_sls'),
+	],
+	cell_size = 4,
+	plen_size = 8,
+	addr_size = 32,
+	rerror_size = 1,
+	clen_size = 1,
+	rflag_size = 1,
+	srcid_size = 8,
+	pktid_size = 1,
+	trdid_size = 1,
+	wrplen_size = 1
+)

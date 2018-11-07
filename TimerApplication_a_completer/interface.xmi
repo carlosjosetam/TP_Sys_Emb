@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<APES:Interface
+  xmlns:xmi="http://www.omg.org/XMI"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:APES="http://www.ocm.org/APES"
+  xsi:schemaLocation="http://www.ocm.org/APES APESInterface.ecore"
+  author="xavier.guerin@imag.fr"
+  unique="true"
+  wrapper="false">
+
+  <id name="TimerApplication" version="1.0"/>
+
+  <restrict>
+    <id name="Mips32Processor" version="1.0"/>
+  </restrict>
+
+  <provide>
+    <context name="Bootstrap">
+      <method name="system_kickstart" result=""/>
+    </context>
+
+    <context name="Alarm">
+      <method name="timer_callback" result=""/>
+    </context>
+
+    <context name="Interrupt">
+      <method name="ipi_callback" result="">
+        <argument name="command" type="int32_t" direction="In"/>
+        <argument name="data" type="access" direction="In"/>
+      </method>
+    </context>
+
+  </provide>
+
+  <require>
+
+    <method name="cpu_write" result="">
+      <argument name="size" type="int32_t" direction="In"/>
+      <argument name="address" type="access" direction="In"/>
+      <argument name="value" type="access" direction="In"/>
+    </method>
+
+  </require>
+
+</APES:Interface>

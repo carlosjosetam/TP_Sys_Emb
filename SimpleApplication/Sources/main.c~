@@ -1,0 +1,7 @@
+#include <Platform/Platform.h>
+
+void system_kickstart (void)
+{
+  platform_debug_puts ("Hello, World !\r\n");
+  for (;;);
+}

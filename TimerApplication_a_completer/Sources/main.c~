@@ -1,0 +1,46 @@
+#include <stdint.h>
+#include <stdbool.h>
+
+#include <Private/Itoa.h>
+#include <Private/Application.h>
+#include "Private/XPuts.h"
+
+#include <Platform/Platform.h>
+#include <Processor/Processor.h>
+
+void system_kickstart (void)
+{
+  char buffer[48];
+  bigtime_t cpu_time; //représente le tps en ns
+  soclib_timer_port_t timer;
+  
+
+  /*
+   * Enabling the AICU.
+   */
+	
+
+cpu_write(UINT32, PLATFORM_AICU_BASE -> control, 1);
+	
+
+
+  /*
+   * Attaching the timer handler.
+   */
+ cpu_trap_attach_isr (0, 1, 0, timer_isr);
+ cpu_trap_enable (1);
+
+  /*
+   * Starting the timer.
+   */
+
+  
+ 
+
+  /*
+   * Reading some values.
+   */
+
+
+  while (true);
+}
